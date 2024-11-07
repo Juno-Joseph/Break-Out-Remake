@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2l1q1slqm6la"]
+
+[ext_resource type="Texture2D" uid="uid://bbnj26gunmo3w" path="res://Assets/Breakout Block.png" id="1_nlhcr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y741q"]
+size = Vector2(6.75341, 2.00909)
+
+[node name="block" type="CharacterBody2D"]
+position = Vector2(32, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, 4)
+texture = ExtResource("1_nlhcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.502503, 0)
+scale = Vector2(0.739626, 0.990991)
+shape = SubResource("RectangleShape2D_y741q")
