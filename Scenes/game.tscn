@@ -1,20 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://cprn8jw5qru1"]
+[gd_scene load_steps=5 format=3 uid="uid://cprn8jw5qru1"]
 
 [ext_resource type="PackedScene" uid="uid://eycqb074b5wo" path="res://Scenes/paddle.tscn" id="1_4yxww"]
 [ext_resource type="PackedScene" uid="uid://b2l1q1slqm6la" path="res://Scenes/block.tscn" id="2_vcm2u"]
 [ext_resource type="PackedScene" uid="uid://bqpj0f8x8juik" path="res://Scenes/ball.tscn" id="3_kaboi"]
+[ext_resource type="Texture2D" uid="uid://c4y3qg2d25io4" path="res://Assets/mountains.png" id="4_067cg"]
 
 [node name="Game" type="Node2D"]
 
 [node name="paddle" parent="." instance=ExtResource("1_4yxww")]
-position = Vector2(581, 583)
+z_index = 1
+position = Vector2(581, 618)
+scale = Vector2(3.5, 3.5)
 
 [node name="block" parent="." instance=ExtResource("2_vcm2u")]
+z_index = 1
 position = Vector2(580, 560)
+scale = Vector2(3.5, 3.5)
 
 [node name="ball" parent="." instance=ExtResource("3_kaboi")]
+z_index = 1
 position = Vector2(582, 580)
+scale = Vector2(3.5, 3.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(582, 533)
-zoom = Vector2(3, 3)
+zoom = Vector2(1.5, 1.5)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 390.0
+offset_top = 425.0
+offset_right = 775.0
+offset_bottom = 665.0
+scale = Vector2(0.997362, 0.899949)
+texture = ExtResource("4_067cg")

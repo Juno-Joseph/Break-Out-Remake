@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqpj0f8x8juik"]
+[gd_scene load_steps=4 format=3 uid="uid://bqpj0f8x8juik"]
 
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="1_3avql"]
 [ext_resource type="Texture2D" uid="uid://337h4c3j0837" path="res://Assets/Breakout Ball.png" id="1_45na0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvs5f"]
@@ -7,6 +8,7 @@ size = Vector2(2, 2)
 
 [node name="ball" type="CharacterBody2D"]
 position = Vector2(242, 142)
+script = ExtResource("1_3avql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
