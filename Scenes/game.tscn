@@ -6,30 +6,37 @@
 [ext_resource type="Texture2D" uid="uid://c4y3qg2d25io4" path="res://Assets/mountains.png" id="4_067cg"]
 
 [node name="Game" type="Node2D"]
+position = Vector2(-3, -2)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 384.0
+offset_bottom = 236.0
+scale = Vector2(3.00138, 2.72092)
+texture = ExtResource("4_067cg")
+metadata/_edit_use_anchors_ = true
 
 [node name="paddle" parent="." instance=ExtResource("1_4yxww")]
 z_index = 1
-position = Vector2(581, 618)
-scale = Vector2(3.5, 3.5)
+position = Vector2(541, 574)
+scale = Vector2(8, 8)
 
 [node name="block" parent="." instance=ExtResource("2_vcm2u")]
 z_index = 1
-position = Vector2(580, 560)
-scale = Vector2(3.5, 3.5)
+position = Vector2(599, 349)
+scale = Vector2(8, 8)
+
+[node name="block2" parent="." instance=ExtResource("2_vcm2u")]
+z_index = 1
+position = Vector2(557, 349)
+scale = Vector2(8, 8)
 
 [node name="ball" parent="." instance=ExtResource("3_kaboi")]
 z_index = 1
-position = Vector2(582, 580)
-scale = Vector2(3.5, 3.5)
+position = Vector2(600, 400)
+scale = Vector2(8, 8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(582, 533)
-zoom = Vector2(1.5, 1.5)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 390.0
-offset_top = 425.0
-offset_right = 775.0
-offset_bottom = 665.0
-scale = Vector2(0.997362, 0.899949)
-texture = ExtResource("4_067cg")
+position = Vector2(579, 326)
+scale = Vector2(3, 1.278)
