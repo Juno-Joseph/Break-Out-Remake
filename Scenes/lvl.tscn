@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cprn8jw5qru1"]
+[gd_scene load_steps=9 format=3 uid="uid://cprn8jw5qru1"]
 
 [ext_resource type="Script" path="res://Scripts/lvl.gd" id="1_wbse3"]
-[ext_resource type="Texture2D" uid="uid://c4y3qg2d25io4" path="res://Assets/mountains.png" id="2_wu51h"]
+[ext_resource type="PackedScene" uid="uid://7b6kl2lhu6em" path="res://Scenes/mountains.tscn" id="2_4l2xx"]
 [ext_resource type="PackedScene" uid="uid://eycqb074b5wo" path="res://Scenes/paddle.tscn" id="3_uoayd"]
 [ext_resource type="PackedScene" uid="uid://bqpj0f8x8juik" path="res://Scenes/ball.tscn" id="4_ajbk5"]
 
@@ -14,18 +14,14 @@ size = Vector2(6, 648)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atq6y"]
 size = Vector2(1166, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aprs"]
+size = Vector2(1151, 20)
+
 [node name="Level" type="Node2D"]
 position = Vector2(-3, -2)
 script = ExtResource("1_wbse3")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -1.0
-offset_top = -4.0
-offset_right = 384.0
-offset_bottom = 236.0
-scale = Vector2(3.00138, 2.72092)
-texture = ExtResource("2_wu51h")
-metadata/_edit_use_anchors_ = true
+[node name="Mountains" parent="." instance=ExtResource("2_4l2xx")]
 
 [node name="paddle" parent="." instance=ExtResource("3_uoayd")]
 z_index = 1
@@ -54,3 +50,11 @@ shape = SubResource("RectangleShape2D_k8jqr")
 [node name="Celing" type="CollisionShape2D" parent="Walls"]
 position = Vector2(585, -2.5)
 shape = SubResource("RectangleShape2D_atq6y")
+
+[node name="Deathzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(573, 639)
+shape = SubResource("RectangleShape2D_3aprs")
+
+[connection signal="body_entered" from="Deathzone" to="ball" method="_on_deathzone_body_entered"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://7b6kl2lhu6em"]
+
+[ext_resource type="Texture2D" uid="uid://c4y3qg2d25io4" path="res://Assets/mountains.png" id="1_3hk5a"]
+[ext_resource type="Texture2D" uid="uid://du43eejuyfjn2" path="res://Assets/far-clouds.png" id="2_32rvo"]
+[ext_resource type="Texture2D" uid="uid://8cgwptc6u8mk" path="res://Assets/sky.png" id="3_5qm4v"]
+[ext_resource type="Texture2D" uid="uid://dovqx7e8ywrwr" path="res://Assets/far-mountains.png" id="4_4m03t"]
+[ext_resource type="Texture2D" uid="uid://bnhks6uwaaxnx" path="res://Assets/near-clouds.png" id="5_eps0k"]
+[ext_resource type="Texture2D" uid="uid://y1c6shycclj5" path="res://Assets/trees.png" id="6_i3xbf"]
+
+[node name="Mountains" type="Sprite2D"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(579, 326)
+scale = Vector2(3.6, 2.7)
+texture = ExtResource("1_3hk5a")
+
+[node name="Far-clouds" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-1.16666, -0.185187)
+scale = Vector2(2.47483, 1.0108)
+texture = ExtResource("2_32rvo")
+
+[node name="Sky" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(-1.11111, -0.74074)
+texture = ExtResource("3_5qm4v")
+
+[node name="Far-mountains" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-0.138885, 3.57628e-06)
+scale = Vector2(1.99826, 1)
+texture = ExtResource("4_4m03t")
+
+[node name="Near-clouds" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-0.30555, -0.370377)
+scale = Vector2(2.21103, 1)
+texture = ExtResource("5_eps0k")
+
+[node name="Trees" type="Sprite2D" parent="."]
+position = Vector2(-0.277779, 0.740746)
+scale = Vector2(1.3287, 1)
+texture = ExtResource("6_i3xbf")
