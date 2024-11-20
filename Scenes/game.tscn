@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cprn8jw5qru1"]
+[gd_scene load_steps=8 format=3 uid="uid://cprn8jw5qru1"]
 
 [ext_resource type="PackedScene" uid="uid://eycqb074b5wo" path="res://Scenes/paddle.tscn" id="1_4yxww"]
 [ext_resource type="PackedScene" uid="uid://b2l1q1slqm6la" path="res://Scenes/block.tscn" id="2_vcm2u"]
 [ext_resource type="PackedScene" uid="uid://bqpj0f8x8juik" path="res://Scenes/ball.tscn" id="3_kaboi"]
 [ext_resource type="Texture2D" uid="uid://c4y3qg2d25io4" path="res://Assets/mountains.png" id="4_067cg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guf38"]
+size = Vector2(8.00002, 651.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8jqr"]
+size = Vector2(6, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atq6y"]
+size = Vector2(1166, 9)
 
 [node name="Game" type="Node2D"]
 position = Vector2(-3, -2)
@@ -19,17 +28,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="paddle" parent="." instance=ExtResource("1_4yxww")]
 z_index = 1
-position = Vector2(541, 574)
-scale = Vector2(8, 8)
-
-[node name="block" parent="." instance=ExtResource("2_vcm2u")]
-z_index = 1
-position = Vector2(599, 349)
-scale = Vector2(8, 8)
-
-[node name="block2" parent="." instance=ExtResource("2_vcm2u")]
-z_index = 1
-position = Vector2(557, 349)
+position = Vector2(472, 574)
 scale = Vector2(8, 8)
 
 [node name="ball" parent="." instance=ExtResource("3_kaboi")]
@@ -39,4 +38,21 @@ scale = Vector2(8, 8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 326)
-scale = Vector2(3, 1.278)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Left Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-1, 328)
+shape = SubResource("RectangleShape2D_guf38")
+
+[node name="Right Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1158, 326)
+shape = SubResource("RectangleShape2D_k8jqr")
+
+[node name="Celing" type="CollisionShape2D" parent="Walls"]
+position = Vector2(585, -2.5)
+shape = SubResource("RectangleShape2D_atq6y")
+
+[node name="block" parent="." instance=ExtResource("2_vcm2u")]
+position = Vector2(584, 367)

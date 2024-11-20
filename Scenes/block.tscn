@@ -4,18 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://bbnj26gunmo3w" path="res://Assets/Breakout Block.png" id="1_nlhcr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y741q"]
-size = Vector2(6.75341, 2.00909)
+size = Vector2(5, 1.49337)
 
-[node name="block" type="CharacterBody2D"]
+[node name="block" type="RigidBody2D"]
 position = Vector2(32, 18)
+gravity_scale = 0.0
 script = ExtResource("1_7qy3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, 4)
+position = Vector2(4, 32)
+scale = Vector2(8, 8)
 texture = ExtResource("1_nlhcr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.502503, 0)
-scale = Vector2(0.739626, 0.990991)
+scale = Vector2(8, 10.714)
 shape = SubResource("RectangleShape2D_y741q")

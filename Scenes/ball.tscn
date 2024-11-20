@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/ball.gd" id="1_3avql"]
 [ext_resource type="Texture2D" uid="uid://337h4c3j0837" path="res://Assets/Breakout Ball.png" id="1_45na0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvs5f"]
-size = Vector2(2, 2)
+[sub_resource type="CircleShape2D" id="CircleShape2D_en8ey"]
+radius = 1.0
 
 [node name="ball" type="CharacterBody2D"]
 position = Vector2(242, 142)
@@ -16,4 +16,4 @@ position = Vector2(0, 1)
 texture = ExtResource("1_45na0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_xvs5f")
+shape = SubResource("CircleShape2D_en8ey")
