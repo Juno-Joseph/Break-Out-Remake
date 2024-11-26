@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cprn8jw5qru1"]
+[gd_scene load_steps=10 format=3 uid="uid://cprn8jw5qru1"]
 
 [ext_resource type="Script" path="res://Scripts/lvl.gd" id="1_wbse3"]
 [ext_resource type="PackedScene" uid="uid://7b6kl2lhu6em" path="res://Scenes/mountains.tscn" id="2_4l2xx"]
 [ext_resource type="PackedScene" uid="uid://eycqb074b5wo" path="res://Scenes/paddle.tscn" id="3_uoayd"]
 [ext_resource type="PackedScene" uid="uid://bqpj0f8x8juik" path="res://Scenes/ball.tscn" id="4_ajbk5"]
+[ext_resource type="PackedScene" uid="uid://bu2e8prgkshv8" path="res://Scenes/game_manager.tscn" id="5_1mv2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_guf38"]
 size = Vector2(8.00002, 651.5)
@@ -14,12 +15,15 @@ size = Vector2(6, 648)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atq6y"]
 size = Vector2(1166, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aprs"]
-size = Vector2(1151, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30l0e"]
+size = Vector2(1152, 20)
 
 [node name="Level" type="Node2D"]
 position = Vector2(-3, -2)
 script = ExtResource("1_wbse3")
+
+[node name="GameManager" parent="." instance=ExtResource("5_1mv2o")]
+process_priority = 6
 
 [node name="Mountains" parent="." instance=ExtResource("2_4l2xx")]
 
@@ -54,7 +58,9 @@ shape = SubResource("RectangleShape2D_atq6y")
 [node name="Deathzone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
-position = Vector2(573, 639)
-shape = SubResource("RectangleShape2D_3aprs")
+position = Vector2(581, 664)
+shape = SubResource("RectangleShape2D_30l0e")
 
+[connection signal="area_entered" from="Deathzone" to="ball" method="_on_deathzone_area_entered"]
+[connection signal="area_shape_entered" from="Deathzone" to="ball" method="_on_deathzone_area_shape_entered"]
 [connection signal="body_entered" from="Deathzone" to="ball" method="_on_deathzone_body_entered"]

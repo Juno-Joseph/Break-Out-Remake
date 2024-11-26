@@ -23,7 +23,6 @@ func _physics_process(delta):
 		if(velocity.x == 0): #prevents ball from just boucing up and down continuously beacuse the horizontal velocity would be to slow to make a difference
 			velocity.x = -200 #if velocity x is to low we will shoot it right a bit
 		
-
 func gameOver():
 	get_tree().reload_current_scene()
 
